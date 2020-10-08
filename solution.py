@@ -30,7 +30,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     mailFrom = "FROM: <name123@nyu.edu> \r\n"
     clientSocket.send(mailFrom.encode())
-    recv2 = clientSocket.recv(1024)
+    recv2 = clientSocket.recv(1024).decode()
     #print(recv2)
     #if recv2[:3] != '250':
     #   print('250 reply not received from server.')
@@ -40,7 +40,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     rcptTo = "TO: <name345@nyu.edu> \r\n"
     clientSocket.send(rcptTo.encode())
-    recv3 = clientSocket.recv(1024)
+    recv3 = clientSocket.recv(1024).decode()
     #print(recv3)
     #if recv3[:3] != '250':
     #    print('250 reply not received from server.')
@@ -50,7 +50,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     data = "DATA:\r\n"
     clientSocket.send(data.encode())
-    recv4 = clientSocket.recv(1024)
+    recv4 = clientSocket.recv(1024).decode()
     #print(recv4)
     #if recv4[:3] != '250':
     #    print('250 reply not received from server.')
@@ -70,7 +70,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     quit = "QUIT:\r\n"
     clientSocket.send(quit.encode())
-    recv5 = clientSocket.recv(1024)
+    recv5 = clientSocket.recv(1024).decode()
     #print(recv5)
     clientSocket.close()
     # Fill in end
